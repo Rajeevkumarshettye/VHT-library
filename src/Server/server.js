@@ -27,6 +27,8 @@ app.get('/history',function(req,res){
      connection.query(q,function(err,data){
          if (err) res.json(err)
          return res.json(data)
+
+         
      })
     
 })
