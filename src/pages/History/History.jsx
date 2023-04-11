@@ -13,13 +13,20 @@ const App = () => {
        const res =await fetch("http://localhost:4000/history");
        const getdata= await res.json();
        setCategory(getdata);
-       console.log(getdata);
+       
+     
+       
 
     }
     getcategory();
     
-     
     }, []);
+    console.log(category)
+  
+    const booktitle=category.map(({Book_title})=>Book_title)
+    //console.log(bookid);
+    
+    
     
     return <>
         <table>
@@ -35,6 +42,9 @@ const App = () => {
             </tr>
             </thead>
             <tbody>
+           
+                
+            
             
             </tbody>
         </table>

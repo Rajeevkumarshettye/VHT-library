@@ -3,11 +3,11 @@ const bodyParser=require("body-parser")
 
 const app=express();
 
-//const cors= require('corse');
+const cors= require('cors');
 
 const connection=require('./db');
 
-//app.use(cors());
+app.use(cors());
 
 app.use(bodyParser.json())
 app.use(
