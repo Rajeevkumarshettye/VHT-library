@@ -5,6 +5,9 @@ import "./Historyindex.css";
 import axios from "axios";
 
 
+
+
+
 const App = () => {
     const [category,setCategory]=useState([]);
 
@@ -15,16 +18,40 @@ const App = () => {
        setCategory(getdata);
        
      
-       
+     
+  
 
     }
     getcategory();
     
+    
     }, []);
-    console.log(category)
-  
-    const booktitle=category.map(({Book_title})=>Book_title)
-    //console.log(bookid);
+    //console.log(category)
+    
+    // const booktitle=category.map(({Book_title})=>Book_title)
+    // console.log(booktitle);
+
+
+        const displaydata=category.map(
+            (info,index)=>(
+                <tr key={index}>
+                    <td>{info.B_id}</td>
+                    <td>{info.Book_title}</td>
+                    <td>{info.Book_author}</td>
+                    <td>{info.lname}</td>
+                    <td>{info.Mobile_number}</td>
+                    <td>{info.Issued_date}</td>
+                    <td>{info.Returned_date}</td>
+                    <td>{info.sname}</td>
+                    <td>{info.Mobile_number}</td>
+                   
+                </tr>
+        )
+           
+        )
+        console.log(displaydata)
+        
+    
     
     
     
@@ -32,7 +59,9 @@ const App = () => {
         <table>
             <thead>
             <tr>
+                <th>Book id</th>
                 <th>Book name</th>
+                <th>Book author</th>
                 <th>Librarian Name</th>
                 <th>Librarian Mobile.no</th>
                 <th>Issued date</th>
@@ -42,8 +71,8 @@ const App = () => {
             </tr>
             </thead>
             <tbody>
-           
-                
+            
+              {displaydata}
             
             
             </tbody>

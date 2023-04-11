@@ -23,7 +23,7 @@ app.get('/',function(req,res){
 
 app.get('/history',function(req,res){
    console.log("123",connection)
-     const q= "SELECT * FROM library.books"
+     const q= "select b.Book_title as Book_title ,b.B_id as B_id,b.Book_author as Book_author, bs.Issued_date as Issued_date, bs.Returned_date as Returned_date,l.lname as lname,l.Mobile_number as Mobile_number,s.sname as sname,s.Mobile_number as Mobile_number FROM books b, books_students bs, librarians l, students s"
      connection.query(q,function(err,data){
          if (err) res.json(err)
          return res.json(data)
