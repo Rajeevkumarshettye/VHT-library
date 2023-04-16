@@ -3,6 +3,10 @@ const bodyParser=require("body-parser")
 
 const app=express();
 
+const rigisterRoutes = require('./rigisterbackend')
+
+const loginRoutes=require('./loginbackend')
+
 const cors= require('cors');
 
 const connection=require('./db');
@@ -42,6 +46,11 @@ app.post('/history',function(req,res){
         return res.json("book has been created" );
     })
 })
+
+
+app.use('/rigister', rigisterRoutes)
+
+app.use('/login',loginRoutes)
 
 app.listen(4000,function(){
     console.log('app listening on port 4000');

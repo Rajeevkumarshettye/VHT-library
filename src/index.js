@@ -19,9 +19,11 @@ root.render(
           <Route path = "/"  element = {<App />}/>
           <Route path = "/home" element = {<Home />}>
           <Route path = "about" element = {<About />} />
-          <Route path = "book" element = {<BookList />} />
           <Route path = "book/:id" element = {<BookDetails />} />
+          <Route exact path = "book" element = {<BookList />} />
+
           </Route>
+
           <Route path='history' element={<History/>}/>
       </Routes>
     </BrowserRouter>

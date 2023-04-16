@@ -1,17 +1,34 @@
-import React from "react";
+import React,{useState} from "react";
 import loginImg from "../../login.svg";
 import { Navigate } from "react-router-dom";
 import Navigatehome from "./Navigatehome";
 
+import axios from "axios";
+ 
 
-export class Login extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+export function Login (props) {
+  const[username,setUsername]=useState("");
+  const[password,setPassword]=useState("");
+  const[loginStatus,setLoginStatus]=useState("");
 
-  render() {
+  const login=(e)=>{
+    e.preventDefault();
+    axios.post("http://localhost:4000/login",{
+    username:username,
+    password:password,
+  }).then((response)=>{
+    if(response.data.message){
+      setLoginStatus(response.data.message);
+    }
+    else{
+      setLoginStatus(response.data[0].email);
+    }
+  })
+}
+
+  
     return (
-      <div className="base-container" ref={this.props.containerRef}>
+      <div className="base-container" ref={props.containerRef}>
         <div className="header">Login</div>
         <div className="content">
           <div className="image">
@@ -26,12 +43,18 @@ export class Login extends React.Component {
               <label htmlFor="password">Password</label>
               <input type="password" name="password" placeholder="password" />
             </div>
-          </div>
+          </div> 
         </div>
+        <div className="footer">
+          <button type="button" className="btn" onClick={login}>
+            Login
+          </button>
+        </div>
+       
         <Navigatehome/>
       </div>
     );
   }
-}
+
 
 export default Login

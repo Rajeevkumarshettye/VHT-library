@@ -73,3 +73,11 @@
   font-family: cursive;
   font-weight: 500;
 }
+
+input.number-to-text::-webkit-outer-spin-button,
+input.number-to-text::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+
