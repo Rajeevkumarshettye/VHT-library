@@ -9,10 +9,12 @@ router.post('/',(req,res)=>{
   
     const username=req.body.username;   
     const password=req.body.password;
+
+    
   
-    connection.query("SELECT * FROM user_data WHERE username = ? AND password =?",[username,password],
+    connection.query("SELECT * FROM library.user_data WHERE username = ? AND userpassword =?",[username,password],
     (err,result)=>{
-      if(error){
+      if(err){
         req.setEncoding({err:err});
       }
       else{
@@ -24,6 +26,8 @@ router.post('/',(req,res)=>{
     }
     }
     );
+    console.log(username);
+    console.log(password);
     
   }) 
 

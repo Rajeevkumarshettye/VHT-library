@@ -49,6 +49,7 @@ export function Login (props) {
           <button type="button" className="btn" onClick={login}>
             Login
           </button>
+          <h1>{loginStatus}</h1>
         </div>
        
         <Navigatehome/>

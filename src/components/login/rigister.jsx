@@ -20,7 +20,7 @@ export function Register (props) {
       username:username,
       email:email,
       mobilenumber:mobilenumber,
-      password:password,
+      userpassword:password,
       role:role,
       }).then((response)=>{
         if(response.data.message){
